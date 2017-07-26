@@ -9,6 +9,7 @@ Application.$controller("MainPageController", ['$scope', '$timeout',
         /* Testing Third Push */
         /* Testing Fourth Push */
         /* Testing Fifth Push */
+        /* Testing sixth Push */
         /* perform any action with the variables inside this block(on-page-load) */
         $scope.onPageVariablesReady = function() {
             /*
