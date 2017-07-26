@@ -6,6 +6,7 @@ Application.$controller("MainPageController", ['$scope', '$timeout',
         var applyFilter = false;
         /* Testing First Push */
         /* Testing Second Push */
+        /* Testing Third Push */
         /* perform any action with the variables inside this block(on-page-load) */
         $scope.onPageVariablesReady = function() {
             /*
