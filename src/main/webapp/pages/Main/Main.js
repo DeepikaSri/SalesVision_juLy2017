@@ -4,7 +4,7 @@ Application.$controller("MainPageController", ['$scope', '$timeout',
         "use strict";
 
         var applyFilter = false;
-
+        /* Testing First Push */
         /* perform any action with the variables inside this block(on-page-load) */
         $scope.onPageVariablesReady = function() {
             /*
