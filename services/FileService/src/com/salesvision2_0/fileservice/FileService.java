@@ -2,28 +2,26 @@
 
 package com.salesvision2_0.fileservice;
 
-import com.wavemaker.runtime.WMAppContext;
-import com.wavemaker.runtime.file.model.DownloadResponse;
-import com.wavemaker.runtime.file.manager.FileServiceManager;
-import com.wavemaker.runtime.util.WMRuntimeUtils;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.activation.MimetypesFileTypeMap;
-import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.wavemaker.runtime.service.annotations.ExposeToClient;
+import javax.activation.MimetypesFileTypeMap;
+import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.wavemaker.runtime.WMAppContext;
+import com.wavemaker.runtime.file.manager.FileServiceManager;
+import com.wavemaker.runtime.file.model.DownloadResponse;
+import com.wavemaker.runtime.service.annotations.ExposeToClient;
+import com.wavemaker.runtime.util.WMRuntimeUtils;
 
 /**
  * File service class with methods to upload, download, list and delete files.
@@ -179,10 +177,13 @@ public class FileService {
      * ******************************************************************************
      */
     protected File getUploadDir() {
-        String uploadDir = WMAppContext.getInstance().getContext().getRealPath("/resources/uploads");
-        File f = new File(uploadDir);
-        f.mkdirs();
-        return f;
+        if(WMAppContext.getInstance() != null) {
+            String uploadDir = WMAppContext.getInstance().getContext().getRealPath("/resources/uploads");
+            File f = new File(uploadDir);
+            f.mkdirs();
+            return f;
+        }
+        return null;
     }
 
     /**
